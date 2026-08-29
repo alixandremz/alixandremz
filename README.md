@@ -1,5 +1,5 @@
 <div align="center">
-<img src="https://raw.githubusercontent.com/SEU_USUARIO/SEU_USUARIO/main/banner.svg" width="100%" alt="Animated banner" />
+<img src="https://raw.githubusercontent.com/alixandremz/alixandremz/main/banner.svg" width="100%" alt="Animated banner" />
   
 # Hi, I'm Alexandre Menezes 👋
 ### Full Stack Developer | Java · Spring Boot · Angular
