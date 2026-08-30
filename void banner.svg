@@ -1,0 +1,100 @@
+<svg viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg" font-family="'Courier New', Courier, monospace">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#000000"/>
+      <stop offset="55%" stop-color="#0a0303"/>
+      <stop offset="100%" stop-color="#160404"/>
+    </linearGradient>
+
+    <radialGradient id="vignette" cx="50%" cy="50%" r="72%">
+      <stop offset="55%" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.8"/>
+    </radialGradient>
+
+    <filter id="noise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" result="noise" seed="7"/>
+      <feColorMatrix in="noise" type="matrix"
+        values="0 0 0 0 1
+                0 0 0 0 1
+                0 0 0 0 1
+                0 0 0 0.06 0"/>
+    </filter>
+
+    <pattern id="scan" width="3" height="3" patternUnits="userSpaceOnUse">
+      <rect width="3" height="1" fill="#ffffff" opacity="0.05"/>
+    </pattern>
+
+    <clipPath id="frame"><rect width="1200" height="300"/></clipPath>
+
+    <style>
+      @keyframes staticFlicker { 0%,100%{opacity:.5;} 10%{opacity:.8;} 20%{opacity:.4;} 35%{opacity:.7;} 50%{opacity:.45;} 65%{opacity:.75;} 80%{opacity:.4;} }
+      @keyframes bigGlitch { 0%,92%,100%{transform:translate(0,0);} 93%{transform:translate(-6px,2px);} 94%{transform:translate(5px,-1px);} 95%{transform:translate(-3px,1px);} 96%{transform:translate(0,0);} }
+      @keyframes flickerHard { 0%,100%{opacity:1;} 3%{opacity:.2;} 6%{opacity:1;} 46%{opacity:1;} 48%{opacity:.15;} 50%{opacity:1;} }
+      @keyframes blinkSlow { 0%,49%{opacity:1;} 50%,100%{opacity:0;} }
+      @keyframes scanDrop { 0%{transform:translateY(-100%);} 100%{transform:translateY(100%);} }
+      @keyframes typeIn { from{ clip-path: inset(0 100% 0 0);} to{ clip-path: inset(0 0 0 0);} }
+      @keyframes chroma { 0%,90%,100%{transform:translate(0,0);} 91%{transform:translate(2px,0);} 93%{transform:translate(-2px,0);} 95%{transform:translate(1px,0);} }
+
+      .static  { animation: staticFlicker 0.25s steps(3) infinite; }
+      .glitchG { animation: bigGlitch 3.4s infinite; }
+      .stamp   { animation: flickerHard 4.5s infinite; }
+      .cursor  { animation: blinkSlow 0.85s steps(2) infinite; }
+      .redText { animation: chroma 2.6s infinite; }
+      .cyanText{ animation: chroma 2.6s infinite reverse; }
+      .nameType{ animation: typeIn 1.4s steps(20) 0.4s both; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="300" fill="url(#bg)"/>
+  <rect width="1200" height="300" fill="#ff0000" filter="url(#noise)" class="static"/>
+
+  <g class="glitchG" clip-path="url(#frame)">
+    <!-- distant redacted document blocks, barely visible -->
+    <g opacity="0.35" fill="#1a1a1a">
+      <rect x="70" y="40" width="220" height="10"/>
+      <rect x="70" y="58" width="160" height="10"/>
+      <rect x="900" y="60" width="180" height="10"/>
+      <rect x="900" y="78" width="120" height="10"/>
+      <rect x="500" y="230" width="200" height="8"/>
+    </g>
+
+    <!-- corner bracket frame, evokes a targeting / recording HUD -->
+    <g stroke="#7a1010" stroke-width="2" fill="none" opacity="0.8">
+      <path d="M20,20 L20,50 M20,20 L50,20"/>
+      <path d="M1180,20 L1180,50 M1180,20 L1150,20"/>
+      <path d="M20,280 L20,250 M20,280 L50,280"/>
+      <path d="M1180,280 L1180,250 M1180,280 L1150,280"/>
+    </g>
+
+    <!-- classified stamp -->
+    <g class="stamp" transform="translate(870,110) rotate(-8)">
+      <rect x="-6" y="-24" width="230" height="46" fill="none" stroke="#c81414" stroke-width="3"/>
+      <text x="105" y="6" fill="#c81414" font-size="24" font-weight="bold" text-anchor="middle" letter-spacing="4">CLASSIFIED</text>
+    </g>
+
+    <!-- glitch title, chromatic aberration -->
+    <g>
+      <text class="redText" x="38" y="150" fill="#ff2b2b" font-size="34" font-weight="bold" opacity="0.7" letter-spacing="1">ANOMALY DETECTED</text>
+      <text class="cyanText" x="38" y="150" fill="#37e0e0" font-size="34" font-weight="bold" opacity="0.5" letter-spacing="1">ANOMALY DETECTED</text>
+      <text x="38" y="150" fill="#f2f2f2" font-size="34" font-weight="bold" letter-spacing="1">ANOMALY DETECTED</text>
+    </g>
+
+    <!-- name, typewriter reveal -->
+    <g class="nameType">
+      <text x="38" y="200" fill="#eaeaea" font-size="26" letter-spacing="1">&gt; ALEXANDRE MENEZES NETO<tspan class="cursor">_</tspan></text>
+    </g>
+    <text x="38" y="226" fill="#c85050" font-size="15" letter-spacing="3" opacity="0.85">FULL STACK DEVELOPER // JAVA · SPRING · ANGULAR</text>
+  </g>
+
+  <!-- rolling scanline -->
+  <rect x="0" y="0" width="1200" height="40" fill="#ffffff" opacity="0.03" style="animation:scanDrop 4s linear infinite;"/>
+
+  <rect width="1200" height="300" fill="url(#scan)"/>
+  <rect width="1200" height="300" fill="url(#vignette)"/>
+
+  <!-- rec indicator -->
+  <circle class="blink-dot" cx="1150" cy="270" r="6" fill="#ff2b2b">
+    <animate attributeName="opacity" values="1;0.15;1" dur="1s" repeatCount="indefinite"/>
+  </circle>
+  <text x="1125" y="275" fill="#ff8080" font-size="14" text-anchor="end" letter-spacing="2">REC</text>
+</svg>
