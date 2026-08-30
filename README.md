@@ -19,7 +19,6 @@ Full Stack Developer with experience building complete applications, from the da
 - 🗄️ Database design and optimization with **MySQL** and **PostgreSQL**
 - 🌐 Web interfaces with **Angular** and **JavaScript**
 - 🎯 Always aiming for clean code, good practices, and solid architecture
-- 📫 Open to new opportunities and collaborations
 
 ---
 
