@@ -1,6 +1,7 @@
 <div align="center">
-<img src="https://raw.githubusercontent.com/alixandremz/alixandremz/main/banner_worm.svg" width="100%" alt="Animated banner" />
-  
+
+  <img src="./worm_banner.svg" alt="worm banner">
+</p>
   
 # Hi, I'm Alexandre Menezes 👋
 ### Full Stack Developer | Java · Spring Boot · Angular
