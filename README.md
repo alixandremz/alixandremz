@@ -1,13 +1,10 @@
 <div align="center">
-
-  <img src="./worm_banner.svg" alt="worm banner">
-</p>
   
 # Hi, I'm Alexandre Menezes 👋
 ### Full Stack Developer | Java · Spring Boot · Angular
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/alexandre-menezes-1135a33a1/)
-[![Gmail](https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:alixandremenezess@gmail.com)
+[![Gmail](https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:alexandremenezes.contato@gmail.com)
 
 </div>
 
